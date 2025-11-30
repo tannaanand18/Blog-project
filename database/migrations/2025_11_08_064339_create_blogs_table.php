@@ -15,6 +15,7 @@ public function up()
         $table->id();
         $table->string('title');
         $table->text('description');
+        $table->unsignedBigInteger('category_id')->nullable();
         $table->string('image')->nullable();
         $table->timestamps();
     });

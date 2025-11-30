@@ -53,6 +53,14 @@
                         <textarea name="description" rows="4" class="form-control" required placeholder="Write your blog description..."></textarea>
                     </div>
 
+                    <select name="category_id" class="form-control" required>
+    @foreach($categories as $cat)
+        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+    @endforeach
+</select>
+
+
+
                     <div class="mb-3">
                         <label class="form-label">Upload Image</label>
                         <input type="file" name="image" class="form-control">

@@ -50,29 +50,42 @@
 
     <h2 class="heading mb-4">📝 Latest Blogs</h2>
 
-    <div class="row g-4">
+    <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3">
+        <h5>Categories</h5>
+        <ul class="list-group">
+            <a href="/blogs?category=all" class="list-group-item">All Blogs</a>
 
-        @foreach($blogs as $blog)
-            <div class="col-md-4">
-                <div class="blog-card">
-
-                    <img src="{{ asset('uploads/'.$blog->image) }}" class="blog-img">
-
-                    <div class="p-3">
-                        <h4 class="blog-title">{{ $blog->title }}</h4>
-                        <p class="blog-desc">{{ Str::limit($blog->description, 120) }}</p>
-
-                        <a href="{{ route('blogs.show', $blog->id) }}" class="btn btn-primary btn-read mt-2">
-                            Read More →
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        @endforeach
-
+            @foreach($categories as $cat)
+                <a href="/blogs?category={{ $cat->id }}" class="list-group-item">
+                    {{ $cat->name }}
+                </a>
+            @endforeach
+        </ul>
     </div>
 
+    <!-- Blogs List -->
+    <div class="col-md-9">
+        <h3>Blogs</h3>
+        <div class="row">
+            @foreach($blogs as $blog)
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        @if($blog->image)
+                            <img src="/uploads/{{ $blog->image }}" class="card-img-top" height="200">
+                        @endif
+                        <div class="card-body">
+                            <h5>{{ $blog->title }}</h5>
+                            <p>{{ Str::limit($blog->description, 100) }}</p>
+                            <span class="badge bg-primary">{{ $blog->category->name }}</span>
+                            <a href="/blog/{{ $blog->id }}" class="btn btn-sm btn-dark mt-2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 </div>
 
 </body>
