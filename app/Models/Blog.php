@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Category;
 
 
+=======
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 
 class Blog extends Model
 {
@@ -27,6 +30,7 @@ class Blog extends Model
     {
         return $this->belongsTo(Category::class);
     }
+<<<<<<< HEAD
 
     public function likes()
 {
@@ -44,4 +48,6 @@ public function isLikedByUser($userId): bool
 }
 
 
+=======
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 }

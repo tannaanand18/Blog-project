@@ -2,6 +2,7 @@
 
 @section('content')
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -126,5 +127,24 @@
     });
 </script>
 @endauth
+=======
+<section class="blog-details section pt-5">
+  <div class="container" data-aos="fade-up">
+
+    <div class="text-center mb-4">
+      <h1>{{ $blog->title }}</h1>
+      <p class="text-muted">{{ $blog->created_at->format('d M, Y') }}</p>
+    </div>
+
+    <img src="{{ asset('uploads/'.$blog->image) }}" class="img-fluid rounded mb-4" alt="Blog Image">
+
+    <p style="font-size:18px; line-height:1.8;">
+      {!! nl2br(e($blog->description)) !!}
+    </p>
+
+    <a href="{{ route('blogs.index') }}" class="btn btn-primary mt-4">← Back to Blogs</a>
+  </div>
+</section>
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 
 @endsection

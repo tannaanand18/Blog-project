@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
@@ -16,18 +17,35 @@ use App\Models\Blog;
 //
 // Home Page
 //
+=======
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Models\Blog;
+use App\Http\Controllers\BlogController;
+
+// ----------------------
+// Home Page
+// ----------------------
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 Route::get('/', function () {
     $blogs = Blog::latest()->get();
     return view('index', compact('blogs'));
 })->name('home');
 
+<<<<<<< HEAD
 //
 // Static Pages
 //
+=======
+// ----------------------
+// Static Pages
+// ----------------------
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+<<<<<<< HEAD
 //
 // Blog Routes
 //
@@ -56,13 +74,32 @@ Route::middleware('auth')->group(function () {
 //
 // User Dashboard (Breeze)
 //
+=======
+// ----------------------
+// Blog Routes
+// ----------------------
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('/add-blog', [BlogController::class, 'create'])->middleware('auth');
+Route::post('/store-blog', [BlogController::class, 'store'])->middleware('auth')->name('store.blog');
+
+// ----------------------
+// User Dashboard (Breeze)
+// ----------------------
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+<<<<<<< HEAD
 //
 // Profile (Breeze)
 //
+=======
+// ----------------------
+// Profile (Breeze)
+// ----------------------
+>>>>>>> 050206aac0484a8d0eca02d3d991632220975c81
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
